@@ -227,30 +227,31 @@ const data = [
 ];
 
 const cardWrapper = document.getElementById("card-wrapper");
+
 for (let index in data) {
   const study = data[index];
+
   const card = document.createElement("div");
   card.setAttribute("class", "card");
-  card.addEventListener("click", () => {
-    window.localStorage.setItem(
-      "studyDetail",
-      JSON.stringify({ index, study })
-    );
-    window.location.href = `./study/detail.html`;
-  });
+
   const img = document.createElement("img");
   img.setAttribute("src", study.imageSrc);
   img.setAttribute("alt", study.title);
+
   const title = document.createElement("h3");
   title.innerText = study.title;
+
   const badgeWrapper = document.createElement("div");
   badgeWrapper.setAttribute("class", "badge-wrapper");
+
   const level = document.createElement("div");
   level.setAttribute("class", "badge");
   level.innerText = study.level;
+
   const stack = document.createElement("div");
   stack.setAttribute("class", "badge");
   stack.innerText = study.stack[0];
+  
   const campus = document.createElement("div");
   campus.setAttribute("class", "badge");
   campus.innerText = study.campus;
