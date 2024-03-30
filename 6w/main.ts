@@ -248,11 +248,8 @@ for (let index in data) {
   const card = document.createElement("div");
   card.setAttribute("class", "card");
   card.addEventListener("click", () => {
-    window.localStorage.setItem(
-      "study",
-      JSON.stringify({ id: index, ...study })
-    );
-    window.location.href = "/study";
+    window.localStorage.setItem("study", JSON.stringify(study));
+    window.location.href = "./study";
   });
 
   const img = document.createElement("img");
