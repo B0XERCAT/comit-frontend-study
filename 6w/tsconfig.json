@@ -6,7 +6,6 @@
     "moduleResolution": "Node",
     "lib": ["ES2015", "DOM", "DOM.Iterable"]
   },
-  "include": ["./**/*.ts", "./**/*.js"],
   "exclude": ["node_modules", "dist"],
   "strict": true,
   "strictNullChecks": true,

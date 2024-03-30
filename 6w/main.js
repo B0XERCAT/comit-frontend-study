@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var data = [
     {
         imageSrc: "https://p92.hu/binaries/content/gallery/p92website/technologies/htmlcssjs-overview.png",
@@ -196,10 +207,14 @@ var data = [
     },
 ];
 var cardWrapper = document.getElementById("card-wrapper");
-for (var index in data) {
+var _loop_1 = function (index) {
     var study = data[index];
     var card = document.createElement("div");
     card.setAttribute("class", "card");
+    card.addEventListener("click", function () {
+        window.localStorage.setItem("study", JSON.stringify(__assign({ id: index }, study)));
+        window.location.href = "/study";
+    });
     var img = document.createElement("img");
     img.setAttribute("src", study.imageSrc);
     img.setAttribute("alt", study.title);
@@ -219,4 +234,7 @@ for (var index in data) {
     badgeWrapper.append(level, stack, campus);
     card.append(img, title, badgeWrapper);
     cardWrapper.append(card);
+};
+for (var index in data) {
+    _loop_1(index);
 }
