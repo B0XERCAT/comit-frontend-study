@@ -7,8 +7,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header className="h-20 flex items-center justify-center">
-          <p className="font-bold text-2xl">
+        <header className="h-32 flex items-center justify-center">
+          <p className="font-bold text-4xl">
             <Link to="/">CoMit Study</Link>
           </p>
         </header>

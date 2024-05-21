@@ -25,7 +25,7 @@ export default function StudyList() {
   return (
     <>
       <CampusFilter data={studyData} onChange={setFilteredData} />
-      <div className="max-w-[1280px] mb-12 grid grid-cols-2 gap-6 max-sm:px-2 sm:gap-x-16 sm:gap-y-12 lg:grid-cols-4">
+      <div className="max-w-[1280px] my-12 grid grid-cols-2 gap-6 max-sm:px-2 sm:gap-x-16 sm:gap-y-12 lg:grid-cols-4">
         {filteredData.map((study, index) => {
           return <StudyCard key={index} {...study} index={index} />;
         })}

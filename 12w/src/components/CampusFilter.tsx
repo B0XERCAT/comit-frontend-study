@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { Study } from "@/types";
+import { Button } from "./ui/button";
 
 export default function CampusFilter({
   data,
@@ -11,34 +12,28 @@ export default function CampusFilter({
   const [currentCampus, setCurrentCampus] = useState<string>("전체");
   const campus = ["공통", "율전", "명륜", "온라인"];
   return (
-    <div id="campus-filter">
-      <div
-        className="campus"
-        style={{
-          backgroundColor: currentCampus === "전체" ? "#dddddd" : "#f5f5f5",
-        }}
+    <div className="flex gap-6">
+      <Button
+        variant={currentCampus === "전체" ? "default" : "secondary"}
         onClick={() => {
           onChange(data);
           setCurrentCampus("전체");
         }}
       >
         전체
-      </div>
+      </Button>
       {campus.map((campus) => {
         return (
-          <div
+          <Button
             key={campus}
-            className="campus"
-            style={{
-              backgroundColor: currentCampus === campus ? "#dddddd" : "#f5f5f5",
-            }}
+            variant={currentCampus === campus ? "default" : "secondary"}
             onClick={() => {
               onChange(data.filter((study) => study.campus === campus));
               setCurrentCampus(campus);
             }}
           >
             {campus}
-          </div>
+          </Button>
         );
       })}
     </div>
