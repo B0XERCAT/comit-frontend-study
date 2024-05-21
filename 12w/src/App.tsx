@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <header>
+        <header className="bg-blue-500">
           <p>
             <Link to="/">CoMit Study</Link>
           </p>
