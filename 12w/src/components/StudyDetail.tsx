@@ -5,23 +5,26 @@ import { MdOutlineSignalCellularAlt } from "react-icons/md";
 import { RiStackOverflowLine } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import type { Study } from "@/types";
+import { Oval } from "react-loader-spinner";
 
 export default function StudyDetail() {
   const [study, setStudy] = useState<Study>();
   const { index } = useParams();
 
   useEffect(() => {
-    fetch(`https://getstudy-he4kudccka-uc.a.run.app/${index}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return res.json();
-      })
-      .then((res) => {
-        setStudy(res);
-      })
-      .catch((error) => console.error("Fetch error:", error));
+    setTimeout(() => {
+      fetch(`https://getstudy-he4kudccka-uc.a.run.app/${index}`)
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return res.json();
+        })
+        .then((res) => {
+          setStudy(res);
+        })
+        .catch((error) => console.error("Fetch error:", error));
+    }, 500);
   }, [index]);
 
   return (
@@ -47,7 +50,9 @@ export default function StudyDetail() {
           <p className="max-w-96 text">{study!.description}</p>{" "}
         </div>
       ) : (
-        <p>Loading...</p>
+        <div className="mt-48">
+          <Oval color="#3B82F6" height={100} width={100} />
+        </div>
       )}
     </main>
   );
